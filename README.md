@@ -1,23 +1,19 @@
 <body>
-	<div>
-		<table>
-			<tr> <th colspan="2">Guide </th> </tr>
-			<tr>
-				<td> To generate coins you need a lot of accounts, each account will get 130+ coins, emails and passwords of them needs to be written inside the file named accounts.json, you'll receive the coins to accounts at 12 GMT. See the image example of accounts.json file</td>
-				<th colspan="1"> <img src="https://i.ibb.co/vvxjMhL/IMG-20211127-170135.jpg"> </th>
-			</tr>
-		</table>
-	<h1 align="center"> Installation </h1>
-	<h2> Termux </h2>
-	<div>
-		pkg install python </br>
-		pip install tabulate </br>
-		git clone https://github.com/bvmblebea/amino_coin_generator </br>
-		cd amino_coin_generator && python main.py </br>
-	</div>
-	<h2> Windows </h2>
-	<div>
-		Download <a href="https://www.python.org"> python </a> </br>
-		Enter the commands into the console
-	</div>
+  <div>
+    <p>
+      To generate coins efficiently, you need multiple accounts.  
+      Each account earns at least <strong>130 coins per day</strong>.  
+      Store account data in <code>accounts.json</code> using the following format:  
+      <code>{ "email": "user@example.com", "password": "your_password" }</code>
+    </p>
+  </div>
+
+  <h2 align="center">Installation</h2>
+  <h3>Windows</h3>
+  <p>
+    1. Download and install <a href="https://www.python.org" target="_blank">Python</a>.<br>
+    2. Open <strong>CMD</strong>.<br>
+    3. Run <code>pip install tabulate</code>.<br>
+    4. Start the script with <code>python main.py</code>.
+  </p>
 </body>
