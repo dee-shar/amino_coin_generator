@@ -61,7 +61,7 @@ def transfer_coins(client: amino.Amino) -> None:
 	link_info = client.get_from_code(
 		input("Blog link: "))["linkInfoV2"]["extensions"]["linkInfo"]
 	ndc_id, blog_id = link_info["ndcId"], link_info["objectId"]
-	delay = int(input("[Transfer delay in seconds]::: "))
+	delay = int(input("Transfer delay in seconds: "))
 	for account in accounts:
 		client = amino.Amino()
 		email = account["email"]
