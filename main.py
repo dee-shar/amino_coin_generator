@@ -17,7 +17,7 @@ print("""
  \____/\____/\_| \_/\____/\_| \_\_| |_/\_/  \___/\_| \_|                                                
 """)
 print(tabulate(configs.MAIN_MENU, tablefmt="psql"))
-select = int(input("[Select]::: "))
+select = int(input("Select: "))
 if select == 1:
 	utils.start_generator()
 elif select == 2:
