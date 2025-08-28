@@ -1,5 +1,4 @@
 from src import utils
-from src import configs
 from tabulate import tabulate
 
 print("""
@@ -16,7 +15,8 @@ print("""
 | |_\ \| |___| |\  || |___| |\ \| | | || | \ \_/ / |\ \  
  \____/\____/\_| \_/\____/\_| \_\_| |_/\_/  \___/\_| \_|                                                
 """)
-print(tabulate(configs.MAIN_MENU, tablefmt="psql"))
+print(tabulate(
+	[[1, "Generate Coins"], [2, "Transfer Coins"]], tablefmt="psql"))
 select = int(input("Select: "))
 if select == 1:
 	utils.start_generator()
