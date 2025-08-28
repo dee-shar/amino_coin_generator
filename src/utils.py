@@ -1,7 +1,6 @@
 import logging
-from time import time
 from json import load
-from time import sleep
+from time import time, sleep
 from src.library import amino
 from concurrent.futures import ThreadPoolExecutor
 
