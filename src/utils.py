@@ -59,7 +59,7 @@ def watch_ad(client: amino.Amino) -> None:
 		
 def transfer_coins(client: amino.Amino) -> None:
 	link_info = client.get_from_code(
-		input("[Blog link]::: "))["linkInfoV2"]["extensions"]["linkInfo"]
+		input("Blog link: "))["linkInfoV2"]["extensions"]["linkInfo"]
 	ndc_id, blog_id = link_info["ndcId"], link_info["objectId"]
 	delay = int(input("[Transfer delay in seconds]::: "))
 	for account in accounts:
@@ -84,8 +84,8 @@ def transfer_coins(client: amino.Amino) -> None:
 
 def start_generator(init_client: amino.Amino) -> None:
 	ndc_id = init_client.get_from_code(
-		input("[Community link]::: "))["linkInfoV2"]["extensions"]["community"]["ndcId"]
-	delay = int(input("[Generation delay in seconds]::: "))
+		input("Community link: "))["linkInfoV2"]["extensions"]["community"]["ndcId"]
+	delay = int(input("Generation delay in seconds: "))
 	for account in accounts:
 		account_client = amino.Amino()
 		email = account["email"]
