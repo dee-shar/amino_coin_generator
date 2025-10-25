@@ -1,4 +1,4 @@
-<h1 align="center">🌌 Amino Coin Generator.</h1>
+<h1 align="center">🌌 Amino Coin Generator</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white" alt="Python"/>
@@ -20,8 +20,8 @@
 
 <pre>
 [
-  { "email": "user@example.com", "password": "your_password" },
-  { "email": "another@example.com", "password": "another_password" }
+  {"email": "user@example.com", "password": "your_password"},
+  {"email": "another@example.com", "password": "another_password"}
 ]
 </pre>
 
