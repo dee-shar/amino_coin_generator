@@ -17,8 +17,8 @@ print("""
 """)
 print(tabulate(
 	[[1, "Generate Coins"], [2, "Transfer Coins"]], tablefmt="psql"))
-select = int(input("Select: "))
-if select == 1:
+choice = int(input("Choose: "))
+if Choice == 1:
 	utils.start_generator()
-elif select == 2:
+elif Choice == 2:
 	utils.transfer_coins()
