@@ -1,5 +1,5 @@
-<h1 align="center">🌌 Amino Coin Generator</h1>
-<h2 align="center">Telegram Contact</h2>
+<h1 align="center">Amino Coin Generator</h1>
+<h2 align="center">Telegram: @althausen</h2>
 <p align="center"> <img src="https://telegram-card.vercel.app/?username=althausen&theme=dark"> </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white" alt="Python"/>
