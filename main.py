@@ -17,7 +17,7 @@ print("""
 """)
 print(tabulate(
 	[[1, "Generate Coins"], [2, "Transfer Coins"]], tablefmt="psql"))
-choice = int(input("Choose: "))
+choice = int(input("Choice: "))
 if Choice == 1:
 	utils.start_generator()
 elif Choice == 2:
