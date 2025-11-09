@@ -1,66 +1,49 @@
 import logging
 from json import load
 from time import time, sleep
-from src.library import amino
+from src.wrapper import amino
 from concurrent.futures import ThreadPoolExecutor
 
 logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s] [%(levelname)s] %(message)s",
-    handlers=[logging.StreamHandler()]
-)
-logger = logging.getLogger(__name__)
+	level=logging.INFO, format="[%(asctime)s] [%(levelname)s] %(message)s")
+logger = logging.getLogger()
 
-accounts = []
-with open("accounts.json") as database:
-	data = load(database)
-	for account in data:
-		accounts.append(account)
+accounts = load(open("accounts.json"))
+get_timers = lambda: {"start": int(time()), "end": int(time()) + 300}
 
 def login(
-		client: amino.Amino,
-		email: str,
-		password: str) -> None:
+		client: amino.Amino, email: str, password: str) -> None:
 	try:
-		logger.info(f"Device ID: {client.device_id}")
 		client.login(
 			email=email, password=password, socket=False)
-		logger.info(f"Logging in: {email}")
+		logger.info(f"Logged in: {email}")
 	except Exception as exception:
 		logger.error(f"Login failed for {email}: {exception}")
-        
-        
-def get_timers() -> dict:
-	return {
-		"start": int(time()),
-		"end": int(time()) + 300
-	}
 
 def generate_coins(
 		client: amino.Amino, ndc_id: int, email: str) -> None:
 	timers = [get_timers() for _ in range(50)]
 	client.send_active_object(ndc_id=ndc_id, timers=timers)
-	logger.info(f"Generating coins for {email}")
-	
+	logger.info(f"Generating coins for: {email}")
+
 def play_lottery(client: amino.Amino, ndc_id: int) -> None:
 	try:
 		response = client.lottery(ndc_id=ndc_id)["api:message"]
 		logger.info(f"Lottery result: {response}")
 	except Exception as exception:
 		logger.error(f"Lottery error: {exception}")
-		
+
 def watch_ad(client: amino.Amino) -> None:
 	try:
 		response = client.watch_ad()["api:message"]
 		logger.info(f"Ad watched: {response}")
 	except Exception as exception:
 		logger.error(f"Ad watch error: {exception}")
-		
-def transfer_coins(client: amino.Amino) -> None:
+
+def send_coins(client: amino.Amino) -> None: 
 	link_info = client.get_from_code(
 		input("Blog link: "))["linkInfoV2"]["extensions"]["linkInfo"]
 	ndc_id, blog_id = link_info["ndcId"], link_info["objectId"]
-	delay = int(input("Transfer delay in seconds: "))
 	for account in accounts:
 		client = amino.Amino()
 		email = account["email"]
@@ -75,13 +58,11 @@ def transfer_coins(client: amino.Amino) -> None:
 			if amount > 0:
 				response = client.send_coins_blog(
 					ndc_id=ndc_id, blog_Id=blog_id, coins=amount)["api:message"]
-				logger.info(f"Transferred {amount} coins | Response: {response}")
-			sleep(delay)
+				logger.info(f"Sent {amount} coins | Response: {response}")
 		except Exception as exception:
-			logger.error(f"Failed to transfer coins: {exception}")
+			logger.error(f"Failed to send coins: {exception}")
 
-
-def start_generator(init_client: amino.Amino) -> None:
+def start(init_client: amino.Amino) -> None: # как протрезвеешь подумай об этом - Крист.
 	ndc_id = init_client.get_from_code(
 		input("Community link: "))["linkInfoV2"]["extensions"]["community"]["ndcId"]
 	delay = int(input("Generation delay in seconds: "))
