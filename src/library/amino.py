@@ -1,4 +1,3 @@
-# coding = utf-8
 import requests
 from hmac import new
 from json import loads
