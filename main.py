@@ -7,4 +7,4 @@ choice = int(input("Choice: "))
 if Choice == 1:
 	utils.start()
 elif Choice == 2:
-	utils.transfer_coins()
+	utils.send_coins()
